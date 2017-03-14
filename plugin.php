@@ -1,17 +1,17 @@
 <?php
 /**
-* Plugin Name: Crowd
-* Plugin URI: http://www.palasthotel.de
-* Description: Journalism beginning with readers
-* Version: 1.0
-* Author: Palasthotel <rezeption@palasthotel.de> (in person: Edward Bock)
-* Author URI: http://www.palasthotel.de
-* Requires at least: 4.0
-* Tested up to: 4.7
-* License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
-* @copyright Copyright (c) 2016, Palasthotel
-* @package Palasthotel\Crowd
-*/
+ * Plugin Name: Crowd
+ * Plugin URI: http://www.palasthotel.de
+ * Description: Journalism beginning with readers
+ * Version: 1.0
+ * Author: Palasthotel <rezeption@palasthotel.de> (in person: Edward Bock)
+ * Author URI: http://www.palasthotel.de
+ * Requires at least: 4.0
+ * Tested up to: 4.7
+ * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
+ * @copyright Copyright (c) 2016, Palasthotel
+ * @package Palasthotel\Crowd
+ */
 
 namespace Crowd;
 
@@ -55,6 +55,11 @@ class Plugin{
 	 * initiator templates
 	 */
 	const TEMPLATE_INITIATOR = "initiator.tpl.php";
+	
+	/**
+	 * oembed template
+	 */
+	const TEMPLATE_EMBED = "embed.php";
 	
 	/**
 	 * ---------------------------------------------
@@ -168,6 +173,12 @@ class Plugin{
 		 */
 		require_once "grid/grid.php";
 		$this->grid = new Grid($this);
+		
+		/**
+		 * oembed implementation
+		 */
+		require_once "inc/embed.php";
+		$this->embed = new Embed($this);
 		
 		/**
 		 * on activate or deactivate plugin
