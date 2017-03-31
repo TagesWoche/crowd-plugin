@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Class Plugin
  */
-class Plugin{
+class Plugin {
 	
 	/**
 	 * ---------------------------------------------
@@ -119,79 +119,79 @@ class Plugin{
 		/**
 		 * load translations
 		 */
-		load_plugin_textdomain( Plugin::DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( Plugin::DOMAIN, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		
 		/**
 		 * can be used to get only card posts
 		 */
-		require_once "inc/card-query.php";
+		require_once dirname( __FILE__ ) . "/inc/card-query.php";
 		
 		/**
 		 * card classes
 		 */
-		require_once "inc/card-classes.php";
-		$this->classes = new CardClasses($this);
+		require_once dirname( __FILE__ ) . "/inc/card-classes.php";
+		$this->classes = new CardClasses( $this );
 		
 		/**
 		 * menu
 		 */
-		require_once "inc/menu.php";
-		$this->menu = new Menu($this);
+		require_once dirname( __FILE__ ) . "/inc/menu.php";
+		$this->menu = new Menu( $this );
 		
 		/**
 		 * settings
 		 */
-		require_once "inc/settings.php";
-		$this->settings = new Settings($this);
+		require_once dirname( __FILE__ ) . "/inc/settings.php";
+		$this->settings = new Settings( $this );
 		
 		/**
 		 * post type for cards
 		 */
-		require_once "inc/card-post-type.php";
-		$this->card_post_type =new CardPostType($this);
+		require_once dirname( __FILE__ ) . "/inc/card-post-type.php";
+		$this->card_post_type = new CardPostType( $this );
 		
 		/**
 		 * content type for cards
 		 */
-		require_once "inc/meta-box.php";
-		$this->meta_box = new MetaBox($this);
+		require_once dirname( __FILE__ ) . "/inc/meta-box.php";
+		$this->meta_box = new MetaBox( $this );
 		
 		/**
 		 * the endpoint
 		 */
-		require_once "inc/endpoint.php";
-		$this->endpoint = new Endpoint($this);
+		require_once dirname( __FILE__ ) . "/inc/endpoint.php";
+		$this->endpoint = new Endpoint( $this );
 		
 		/**
 		 * the rendering
 		 */
-		require_once "inc/render.php";
-		$this->render = new Render($this);
+		require_once dirname( __FILE__ ) . "/inc/render.php";
+		$this->render = new Render( $this );
 		
 		/**
 		 * grid implementation
 		 */
-		require_once "grid/grid.php";
-		$this->grid = new Grid($this);
+		require_once dirname( __FILE__ ) . "/grid/grid.php";
+		$this->grid = new Grid( $this );
 		
 		/**
 		 * oembed implementation
 		 */
-		require_once "inc/embed.php";
-		$this->embed = new Embed($this);
+		require_once dirname( __FILE__ ) . "/inc/embed.php";
+		$this->embed = new Embed( $this );
 		
 		/**
 		 * on activate or deactivate plugin
 		 */
-		register_activation_hook(__FILE__, array($this, "activation"));
-		register_deactivation_hook(__FILE__, array($this, "deactivation"));
+		register_activation_hook( __FILE__, array( $this, "activation" ) );
+		register_deactivation_hook( __FILE__, array( $this, "deactivation" ) );
 		
 	}
 	
 	/**
 	 * on plugin activation
 	 */
-	function activation(){
+	function activation() {
 		$this->endpoint->add_endpoint();
 		$this->card_post_type->init_post_type();
 		flush_rewrite_rules();
@@ -200,7 +200,7 @@ class Plugin{
 	/**
 	 * on plugin deactivation
 	 */
-	function deactivation(){
+	function deactivation() {
 		flush_rewrite_rules();
 	}
 }
@@ -214,4 +214,4 @@ $crowd_plugin = new Plugin();
 /**
  * all public functions
  */
-include "public-functions.php";
+include dirname( __FILE__ ) . "/public-functions.php";
