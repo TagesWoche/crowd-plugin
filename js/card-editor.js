@@ -84,7 +84,7 @@
 
 			for (var index in state) {
 				$list.append(list_item(field, state[index],
-					get_input_name(field, parent_key)+"["+index+"]"));
+					get_input_name(field, parent_key)+"[item"+index+"]"));
 			}
 
 			var $title = $('<div></div>').
@@ -149,7 +149,7 @@
 			var $list = $(this).data('append_to');
 			var index = $list.children().length;
 
-			$list.append( InputTypes.list_item(_field, {}, _parent_key+"["+index+"]") );
+			$list.append( InputTypes.list_item(_field, {}, _parent_key+"[item"+index+"]") );
 		});
 
 		/**
@@ -166,6 +166,13 @@
 				$item.insertAfter($item.next());
 			}
 		}
+
+		/**
+		 * delete item
+		 */
+		on_click('button[role=delete]', function(e){
+			$(this).closest('.card-editor__list--item').remove();
+		});
 
 		/**
 		 * on change card type
