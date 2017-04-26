@@ -21,8 +21,10 @@ class MetaBox {
 		
 		require_once "meta-box/card-config.php";
 		$this->config = new MetaBoxCardConfig($plugin);
+
 		require_once "meta-box/initiator.php";
 		$this->initiator = new MetaBoxInitiator($plugin);
+
 		require_once "meta-box/cards-to-post.php";
 		$this->post_cards = new MetaBoxCardsToPost($plugin);
 		
@@ -30,23 +32,6 @@ class MetaBox {
 	}
 	
 	function add_meta_boxes( $post_type, $post ) {
-		
-		$card = CardClasses::get_card_object( $post );
-		
-		$this->config->setCard($card);
-		
-		
-		/**
-		 * card configurator only on post type card
-		 */
-		add_meta_box(
-			'crowd_config_meta_box',
-			__( 'Card configuration', Plugin::DOMAIN ),
-			array( $this->config, 'render' ),
-			$this->plugin->card_post_type->getSlug(),
-			'normal',
-			'high'
-		);
 		
 		/**
 		 * add initiator

@@ -13,6 +13,7 @@
 		return $.ajax({
 			url: Crowd_API.endpoint,
 			method: "POST",
+			dataType: "json",
 			data: params,
 		}).done(callback);
 	};
