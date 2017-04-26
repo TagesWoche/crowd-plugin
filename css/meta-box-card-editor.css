@@ -1,0 +1,15 @@
+
+.card-editor__field{
+	margin: 5px 0;
+}
+.card-editor__title{
+	font-weight: bold;
+}
+.card-editor__list{
+	/*padding-left: 10px;*/
+}
+.card-editor__list--item{
+	border-left: 5px solid #cdcdcd;
+	margin: 15px 0;
+	padding: 5px;
+}

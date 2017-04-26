@@ -7,6 +7,7 @@ class MetaBoxCardConfig {
 
 	const ROOT_ID = "crowd-card-editor";
 	const HANDLE_JS = "crowd-card-editor-js";
+	const HANDLE_CSS = "crowd-card-editor-css";
 
 	/**
 	 * @var BaseCard
@@ -30,14 +31,17 @@ class MetaBoxCardConfig {
 	 * @param \WP_Post $post
 	 */
 	function add_meta_boxes( $post_type, $post ) {
+		if($post_type !== $this->plugin->card_post_type->getSlug() ) return;
 
 		$card = CardClasses::get_card_object( $post );
 		$this->setCard( $card );
 
+		wp_enqueue_style(self::HANDLE_CSS, $this->plugin->url."/css/meta-box-card-editor.css");
+
 		wp_enqueue_script(
 			self::HANDLE_JS,
 			$this->plugin->url . "/js/card-editor.js",
-			array( 'jquery', 'underscore', Plugin::HANDLE_JS_API ),
+			array( 'jquery', 'underscore' ),
 			filemtime( $this->plugin->dir . "/js/card-editor.js" ),
 			true
 		);
@@ -56,13 +60,8 @@ class MetaBoxCardConfig {
 
 		wp_localize_script( self::HANDLE_JS, 'Crowd_CardEditor', array(
 			"root_id"    => self::ROOT_ID,
-			"post_id"    => $post->ID,
 			"structures" => $structures,
 			"state"      => $state,
-			"params" => array(
-				Endpoint::VAR_ACTION => BackendAction::ACTION,
-				BackendAction::FUNC => BackendAction::FUNC_UPDATE_CARD,
-			),
 		) );
 
 		/**
@@ -104,8 +103,13 @@ class MetaBoxCardConfig {
 	 * @param \WP_Post $post
 	 */
 	function render( \WP_Post $post ) {
-		$fields = $this->card->getMetaFields();
-		$this->renderFields( $fields );
+
+		?>
+		<div id="<?php echo self::ROOT_ID; ?>">CARD EDITOR</div>
+		<?php
+
+//		$fields = $this->card->getMetaFields();
+//		$this->renderFields( $fields );
 
 	}
 
@@ -115,10 +119,6 @@ class MetaBoxCardConfig {
 	 * @param string $parent_key
 	 */
 	function renderFields( $fields, $values = null, $parent_key = "" ) {
-
-		?>
-		<div id="<?php echo self::ROOT_ID; ?>">CARD EDITOR</div>
-		<?php
 
 		// TODO: custom field handler with filter that return true if handled and echos output
 

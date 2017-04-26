@@ -19,8 +19,7 @@ class BackendAction extends AbstractAction {
 	const FUNC = "func";
 	const FUNC_QUERY_CARDS = "query_cards";
 	const FUNC_QUERY_USERS = "query_users";
-	const FUNC_UPDATE_CARD = "update_card";
-	
+
 	/**
 	 * @return string
 	 */
@@ -44,9 +43,6 @@ class BackendAction extends AbstractAction {
 				break;
 			case self::FUNC_QUERY_USERS:
 				$this->_query_users($json);
-				break;
-			case self::FUNC_UPDATE_CARD:
-				$this->_update_card($json);
 				break;
 		}
 	}
@@ -93,17 +89,6 @@ class BackendAction extends AbstractAction {
 			}
 		}
 		
-		wp_send_json($response);
-		exit;
-	}
-
-	/**
-	 * query users
-	 * @param $json
-	 */
-	private function _update_card($json){
-		$response = array();
-
 		wp_send_json($response);
 		exit;
 	}
