@@ -120,7 +120,14 @@
 		function render() {
 			$root.empty();
 
-			var structure = structures[state.crowd_card_classname];
+			var structure = null;
+			if(!structures.hasOwnProperty(state.crowd_card_classname)){
+				structure = structures[Object.keys(structures)[0]];
+			} else {
+				structure = structures[state.crowd_card_classname];
+			}
+
+
 
 			for (var i in structure) {
 				var field = structure[i];

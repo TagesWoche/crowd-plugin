@@ -79,7 +79,7 @@ class Render {
 		/**
 		 * ignore if not post type of cards
 		 */
-		if ( $post->post_type != $this->plugin->card_post_type->getSlug() ) {
+		if ( !is_a('\WP_Post', $post) || $post->post_type != $this->plugin->card_post_type->getSlug() ) {
 			return $content;
 		}
 		
