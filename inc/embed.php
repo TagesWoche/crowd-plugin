@@ -11,7 +11,8 @@ class Embed {
 	 */
 	function __construct(Plugin $plugin) {
 		$this->plugin = $plugin;
-		
+
+		wp_oembed_add_provider(network_site_url('/card/*'),network_site_url('/wp-json/oembed/'));
 		/**
 		 * manipulate oembed html
 		 */
@@ -40,7 +41,7 @@ class Embed {
 		
 		if( 0 != $card_post_id && $this->plugin->card_post_type->getSlug() == get_post_type($card_post_id)){
 			$card = CardClasses::get_card_object( get_post($card_post_id) );
-			return "<div class=\"wp-embedded-content\">KARTE</div>";
+			return $card->render();//"<div class=\"wp-embedded-content\">KARTE</div>";
 		}
 		
 		return $html;
