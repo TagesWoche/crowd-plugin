@@ -127,8 +127,6 @@
 				structure = structures[state.crowd_card_classname];
 			}
 
-
-
 			for (var i in structure) {
 				var field = structure[i];
 				var $el = InputTypes[field.type](field, state[field.meta_key]);
