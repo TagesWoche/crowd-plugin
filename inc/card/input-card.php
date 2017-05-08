@@ -77,6 +77,7 @@ class InputCard extends BaseCard {
 	 * --------------------------------------------------------
 	 */
 	function card_action( $json, $redirect = FALSE ) {
+
 		/**
 		 * if there is no user content we cannot help
 		 */
@@ -101,24 +102,27 @@ class InputCard extends BaseCard {
 		 * modify $content initially filled with user content
 		 */
 		$content = $json->{self::POST_INPUT_USER_CONTENT};
-		$content = apply_filters( Plugin::FILTER_CARD_INPUT_MODIFY_CONTENT, $content );
+		$content = apply_filters( Plugin::FILTER_CARD_INPUT_MODIFY_CONTENT, $content, $json, $this );
 		
 		/**
 		 * handle submitted content.
 		 */
 		$skip_mailing = FALSE;
-		$skip_mailing = apply_filters( Plugin::FILTER_CARD_INPUT_HANDLE_CONTENT, $skip_mailing, $content, $this );
-		
-		
+		$skip_mailing = apply_filters( Plugin::FILTER_CARD_INPUT_HANDLE_CONTENT, $skip_mailing, $content, $json, $this );
+
+
 		if ( ! $skip_mailing ) {
+
 			/**
 			 * send mail if should not skip
 			 */
 			$subject = apply_filters(
 				Plugin::FILTER_CARD_INPUT_MAIL_SUBJECT,
 				sprintf( _x( "New content from %s", "Mail subject", Plugin::DOMAIN ), $this->getName() ),
+				$json,
 				$this
 			);
+
 			wp_mail(
 				$this->get_receiver(),
 				$subject,
