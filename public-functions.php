@@ -5,8 +5,7 @@
  * @return \Crowd\Plugin
  */
 function crowd_get_plugin(){
-	global $crowd_plugin;
-	return $crowd_plugin;
+	return \Crowd\Plugin::instance();
 }
 
 /**

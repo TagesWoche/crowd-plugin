@@ -3,7 +3,7 @@
  * Plugin Name: Crowd
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Palasthotel <rezeption@palasthotel.de> (in person: Edward Bock)
  * Author URI: http://www.palasthotel.de
  * Requires at least: 4.0
@@ -30,7 +30,6 @@ class Plugin {
 	 * plugin constants
 	 * ---------------------------------------------
 	 */
-	const VERSION = 1.0;
 	const DOMAIN = "crowd";
 	const HANDLE_JS_API = "crowd_js_api";
 	
@@ -104,12 +103,26 @@ class Plugin {
 	 * should send mail with user input or will you handle it custom way
 	 */
 	const FILTER_CARD_INPUT_MAIL_SUBJECT = "crowd_card_input_mail_subject";
-	
+
+	/**
+	 * @var Plugin
+	 */
+	private static $instance;
+
+	/**
+	 * @return Plugin
+	 */
+	public static function instance(){
+		if(self::$instance == null){
+			self::$instance = new Plugin();
+		}
+		return self::$instance;
+	}
 	
 	/**
 	 * Plugin constructor.
 	 */
-	function __construct() {
+	private function __construct() {
 		/**
 		 * base paths
 		 */
@@ -208,8 +221,7 @@ class Plugin {
 /**
  * init and make it accessible
  */
-global $crowd_plugin;
-$crowd_plugin = new Plugin();
+Plugin::instance();
 
 /**
  * all public functions
