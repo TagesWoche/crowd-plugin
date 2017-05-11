@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name: Crowd
- * Plugin URI: http://www.palasthotel.de
+ * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
  * Version: 1.0
  * Author: Palasthotel <rezeption@palasthotel.de> (in person: Edward Bock)
  * Author URI: http://www.palasthotel.de
  * Requires at least: 4.0
- * Tested up to: 4.7
+ * Tested up to: 4.7.4
  * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
- * @copyright Copyright (c) 2016, Palasthotel
+ * @copyright Copyright (c) 2017, Palasthotel
  * @package Palasthotel\Crowd
  */
 
