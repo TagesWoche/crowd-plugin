@@ -1,5 +1,5 @@
 === Crowd ===
-Contributors: palasthotel, edwardbock
+Contributors: palasthotel, edwardbock, tageswoche
 Donate link: http://palasthotel.de/
 Tags: community
 Requires at least: 4.0
