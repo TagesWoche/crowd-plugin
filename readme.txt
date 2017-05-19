@@ -8,7 +8,6 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-
 Crowd lets you create and add cards to your contents for polls or similar community input.
 
 == Description ==
@@ -23,7 +22,7 @@ Out of the box, WordPress has only one way to gather user input: comments. If yo
 
 = WHAT DOES THE PLUGIN DO? =
 
-You can create so called ‘Input Card’ where users can answer a question and provide valuable feedback. Furthermore, the plugin provides a ‘Poll Card’ that you can use for surveys. Finally, there is also a third type of cards ‘HTML Card’ that allows custom html input to create your very own card.
+You can create a so called ‘Input Card’ where users can answer a question and provide valuable feedback. Furthermore, the plugin provides a ‘Poll Card’ that you can use for surveys. Finally, there is also a third type of cards ‘HTML Card’ that allows custom html input to create your very own card.
 
 = HOW DO I USE IT? =
 
@@ -62,6 +61,8 @@ You can email us at admin@tageswoche.ch with "Crowd Plugin" in the subject and t
 1. You can find the Crowd plugin in your sidebar.
 2. Create a new card.
 3. Interface for creating an Input Card.
+4. Example of a ‘Poll Card’
+5. Example of an ‘Input Card’
 
 == Changelog ==
 
