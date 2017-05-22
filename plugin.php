@@ -4,8 +4,8 @@
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
  * Version: 1.0.1
- * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de> (in person: Edward Bock)
- * Author URI: http://www.palasthotel.de
+ * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>
+ * Author URI: http://www.tageswoche.ch
  * Requires at least: 4.0
  * Tested up to: 4.7.4
  * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2

@@ -1,6 +1,6 @@
 === Crowd ===
 Contributors: tageswoche, palasthotel, edwardbock
-Donate link: http://www.tageswoche.ch/, http://palasthotel.de/
+Donate link: http://www.tageswoche.ch/
 Tags: community
 Requires at least: 4.0
 Tested up to: 4.7.4
