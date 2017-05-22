@@ -1,4 +1,4 @@
-=== Crowd ===
+=== TalkToMe - user inputs & polls ===
 Contributors: tageswoche, palasthotel, edwardbock
 Donate link: http://www.tageswoche.ch/
 Tags: community
@@ -8,7 +8,7 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Crowd lets you create and add cards to your contents for polls or similar community input.
+TalkToMe lets you create and add cards to your contents for polls or similar community input.
 
 == Description ==
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Crowd
+ * Plugin Name: TalkToMe - user inputs & polls
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
  * Version: 1.0.1
