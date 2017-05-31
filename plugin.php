@@ -3,11 +3,11 @@
  * Plugin Name: TalkToMe - user inputs & polls
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>
  * Author URI: http://www.tageswoche.ch
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.7.5
  * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @copyright Copyright (c) 2017, Palasthotel
  * @package Palasthotel\Crowd
