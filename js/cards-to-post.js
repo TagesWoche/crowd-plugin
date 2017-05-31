@@ -2,6 +2,8 @@
  * Cards to posts meta box JS
  */
 (function($){
+
+	var API = Crowd_API;
 	
 	/**
 	 * constants
@@ -68,11 +70,10 @@
 	 * @private
 	 */
 	function _request_query_cards(s, callback){
-		console.log('_request_query_cards', s)
 		return $.ajax({
 			dataType: "json",
 			method: "POST",
-			url: "/__crowd",
+			url: API.endpoint,
 			data: {
 				crowd_action: "backend_action",
 				func: "query_cards",
@@ -83,7 +84,7 @@
 			},
 			success: callback,
 			error: function(a,b,c){
-				console.log("error",a,b,c);
+				console.error("error",a,b,c);
 			}
 		});
 	}
@@ -94,7 +95,6 @@
 	 * @private
 	 */
 	function _on_request_query_cards_success(data){
-		console.log("_on_request_query_cards_success", data);
 		$suggests.empty();
 		for(var i = 0; i < data.length; i++){
 			var $item = $("<div class='crowd-cards-to-post__suggest-item'>"+data[i].post_title+"</div>");
@@ -131,7 +131,6 @@
 	 * remove card
 	 */
 	$selected.on("click",".crowd-card__remove",function(){
-		console.log("remove");
 		var card_id =$(this).closest(".crowd-card").find("input").val();
 		cards = cards.filter(function(card){
 			return (card.ID != card_id);

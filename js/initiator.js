@@ -10,10 +10,7 @@
 	 */
 	var API = Crowd_API;
 	var Initiator = Crowd_Initiator;
-	
-	
-	console.log(API, Initiator);
-	
+
 	
 	var $input = $('#crowd-initiator');
 	var $id_field = $('#crowd-initiator--id');
@@ -28,10 +25,8 @@
 	
 	function _get_users(name){
 		Initiator.query_users(name).done(function(data){
-			console.log(data);
 			$list.empty();
 			for(let user of data){
-				console.log(user);
 				$list.append($("<div>"+user.display_name+"</div>"));
 			}
 		});
@@ -46,7 +41,6 @@
 	 */
 	function _request_query_users(s, callback){
 		Initiator.params.s = s;
-		console.log(Initiator.params);
 		return API.post(Initiator.params);
 	}
 	Initiator.query_users = _request_query_users;

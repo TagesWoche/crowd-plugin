@@ -35,8 +35,8 @@ class MetaBoxCardsToPost {
 		wp_enqueue_script(
 			"crowd_cards_to_post_script",
 			$this->plugin->url . "/js/cards-to-post.js",
-			array( "jquery", "jquery-ui-sortable" ),
-			1,
+			array( "jquery", "jquery-ui-sortable", Plugin::HANDLE_JS_API ),
+			filemtime($this->plugin->dir."/js/cards-to-post.js"),
 			TRUE
 		);
 		
