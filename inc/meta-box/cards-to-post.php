@@ -9,6 +9,9 @@ class MetaBoxCardsToPost {
 	 * post meta key for initiator user id
 	 */
 	const META_POST_CARDS = "crowd_post_cards";
+
+	const NONCE_ACTION = "nonce_crowd_post_cards_action";
+	const NONCE_NAME = "nonce_crowd_post_cards_name";
 	
 	/**
 	 * MetaBoxCardConfig constructor.
@@ -47,7 +50,7 @@ class MetaBoxCardsToPost {
 				$contents[] = $card->toJSON();
 			}
 		}
-		
+		wp_nonce_field(self::NONCE_ACTION, self::NONCE_NAME)
 		?>
 		<script type="text/javascript">
 			window.crowd = window.crowd || {};
@@ -70,6 +73,9 @@ class MetaBoxCardsToPost {
 	 * @param $post
 	 */
 	function save_post( $post_id, $post ) {
+
+		if( !isset($_POST[self::NONCE_NAME]) || !wp_verify_nonce($_POST[self::NONCE_NAME], self::NONCE_ACTION )) return;
+
 		if ( isset( $_POST[ self::META_POST_CARDS ] )
 		     && ! empty( $_POST[ self::META_POST_CARDS ] )
 		     && is_array( $_POST[ self::META_POST_CARDS ] )
@@ -80,6 +86,8 @@ class MetaBoxCardsToPost {
 			}
 			
 			update_post_meta( $post_id, self::META_POST_CARDS, $ids );
+		} else {
+			delete_post_meta( $post_id, self::META_POST_CARDS);
 		}
 	}
 	

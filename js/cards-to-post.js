@@ -30,7 +30,7 @@
 	 * add to dom
 	 */
 	$controls.append($input).append($suggests);
-	$root.append($selected).append($controls);
+	$root.append($controls).append($selected);
 	
 	/**
 	 * build card element
@@ -41,7 +41,7 @@
 	function _build_card(card){
 		var $element = $("<div class='crowd-card crowd-card__"+card.type+"'></div>");
 		$element.append("<div class='crowd-card__title'><a href='"+_edit_post_link(card.ID)+"'>"+card.post_title+"</a></div>");
-		$element.append("<div class='crowd-card__remove'>x</div>");
+		$element.append("<div class='crowd-card__remove'></div>");
 		$element.append("<input type='hidden' name='"+input_name+"[]' value='"+card.ID+"' />");
 		return $element;
 	}

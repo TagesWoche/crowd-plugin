@@ -1,0 +1,45 @@
+.crowd-card{
+	padding: 15px;
+	position: relative;
+	border-top: 1px solid #efefef;
+}
+
+.crowd-card__remove{
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	background: black;
+	width: 20px;
+	height: 20px;
+	color: white;
+	border-radius: 10px;
+	margin-top: -10px;
+}
+.crowd-card__remove:after{
+	position: absolute;
+	content:"⨉";
+	left: 5px;
+}
+.crowd-card__remove:hover{
+	background-color: #333;
+	cursor: pointer;
+}
+.crowd-cards-to-post__suggest-list{
+	position: absolute;
+	top:26px;
+	background: white;
+	z-index: 1;
+}
+.crowd-cards-to-post__suggest-item{
+	padding: 10px;
+	border: 1px solid #333;
+	border-top: none;
+}
+.crowd-cards-to-post__suggest-item:first-child{
+	border-top: 1px solid #333;
+}
+.crowd-cards-to-post__suggest-item:hover{
+	border-left: 5px solid #333;
+	padding-left: 6px;
+	cursor: pointer;
+}
