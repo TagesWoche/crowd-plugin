@@ -130,8 +130,12 @@ class CardPostType {
 	
 	/**
 	 * filter the cards
+	 * @param string $post_type
 	 */
-	function restrict_manage_posts(){
+	function restrict_manage_posts($post_type){
+
+		if($this->getSlug() != $post_type) return;
+
 		$classes = CardClasses::get_registered_classes();
 		$selected_card = "";
 		if(isset($_GET[self::VAR_FILTER_CARD])){

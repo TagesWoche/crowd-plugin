@@ -3,7 +3,7 @@
  * Plugin Name: TalkToMe - user inputs & polls
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>
  * Author URI: http://www.tageswoche.ch
  * Requires at least: 4.0
@@ -32,6 +32,13 @@ class Plugin {
 	 */
 	const DOMAIN = "crowd";
 	const HANDLE_JS_API = "crowd_js_api";
+
+	/**
+	 * ---------------------------------------------
+	 * values
+	 * ---------------------------------------------
+	 */
+	const OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED = "_crowd_auto_render_cards_to_post_disabled";
 	
 	/**
 	 * ---------------------------------------------
@@ -180,6 +187,12 @@ class Plugin {
 		 */
 		require_once dirname( __FILE__ ) . "/inc/render.php";
 		$this->render = new Render( $this );
+
+		/**
+		 * post manipulation
+		 */
+		require_once dirname( __FILE__ ) . "/inc/post.php";
+		$this->post = new Post( $this );
 		
 		/**
 		 * grid implementation

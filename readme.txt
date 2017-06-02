@@ -4,7 +4,7 @@ Donate link: http://www.tageswoche.ch/
 Tags: community
 Requires at least: 4.0
 Tested up to: 4.7.5
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,12 @@ You can email us at admin@tageswoche.ch with "Crowd Plugin" in the subject and t
 5. Example of an ‘Input Card’
 
 == Changelog ==
+
+= 1.0.3 =
+* Card filter only on card post type table
+* Cards are rendered automatically to post content
+* Disable automatic rendering of cards in settings
+* German translation
 
 = 1.0.2 =
 * Cards to Post Endpoint on subdirectory installations fix

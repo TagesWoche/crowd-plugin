@@ -43,11 +43,50 @@ class Settings {
 	 * render the settings page
 	 */
 	public function render_settings() {
+
+		if( isset($_POST) ){
+
+			if(
+				isset($_POST[Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED]) &&
+			    $_POST[Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED] == "1"
+			){
+
+				update_site_option(	Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED,true );
+			} else {
+				delete_site_option(	Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED );
+			}
+
+		}
+
 		?>
 		<div class="wrap">
-			<h2>Settings</h2>
-			<p>Public or not public post type, add cards to content rendering...</p>
+			<form method="post">
+				<h2>Settings</h2>
+
+				<p>
+					<label>
+						<input
+								type="checkbox"
+								name="<?php echo Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED; ?>"
+								value="1"
+						        <?php
+						        if( get_site_option(Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED) ){
+						        	?>
+							        checked="checked"
+							        <?php
+						        }
+						        ?>
+						/>
+						Disable autorendering cards to post content.
+					</label>
+				</p>
+
+				<?php
+				submit_button("Save", 'primary');
+				?>
+
+			</form>
 		</div>
-<?php
+		<?php
 	}
 }

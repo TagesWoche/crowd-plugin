@@ -44,7 +44,7 @@ function crowd_get_initiator($post_id = null){
  * renders initiator by id or for global post
  * @param null $post_id
  */
-function crowd_render_initiator($post_id = null){
+function crowd_render_initiator( $post_id = null ){
 	do_action(\Crowd\Plugin::ACTION_RENDER_INITIATOR, $post_id);
 }
 

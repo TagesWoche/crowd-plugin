@@ -31,7 +31,7 @@ class CardClasses {
 		/**
 		 * ask for card classes
 		 */
-		do_action(Plugin::ACTION_ADD_CARD_CLASS);
+		do_action(Plugin::ACTION_ADD_CARD_CLASS );
 	}
 	
 	/**

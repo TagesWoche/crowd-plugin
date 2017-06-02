@@ -19,8 +19,6 @@ class MetaBoxCardsToPost {
 	function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
-		
-		
 	}
 	
 	/**
