@@ -50,7 +50,7 @@ class MetaBox {
 		 */
 		add_meta_box(
 			'crowd_cards_to_post_meta_box',
-			__( 'Crowd Cards', Plugin::DOMAIN ),
+			__( 'Talk to Me - Cards', Plugin::DOMAIN ),
 			array( $this->post_cards, 'render' ),
 			"post",
 			'normal',

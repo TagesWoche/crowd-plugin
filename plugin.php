@@ -6,6 +6,8 @@
  * Version: 1.0.3
  * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>
  * Author URI: http://www.tageswoche.ch
+ * Text Domain: crowd
+ * Domain Path: /languages
  * Requires at least: 4.0
  * Tested up to: 4.7.5
  * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
@@ -139,7 +141,11 @@ class Plugin {
 		/**
 		 * load translations
 		 */
-		load_plugin_textdomain( Plugin::DOMAIN, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain(
+			Plugin::DOMAIN,
+			FALSE,
+			dirname( plugin_basename( __FILE__ ) ) . '/languages'
+		 );
 		
 		/**
 		 * can be used to get only card posts

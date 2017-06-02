@@ -1,0 +1,228 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: TalkToMe - user inputs & polls\n"
+"POT-Creation-Date: 2017-06-02 13:05+0200\n"
+"PO-Revision-Date: 2017-06-02 13:05+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/card-post-type.php:41
+msgctxt "Post Type General Name"
+msgid "Cards"
+msgstr ""
+
+#: inc/card-post-type.php:42
+msgctxt "Post Type Singular Name"
+msgid "Card"
+msgstr ""
+
+#: inc/card-post-type.php:43
+msgid "Crowd Card"
+msgstr ""
+
+#: inc/card-post-type.php:44 inc/card-post-type.php:45
+msgid "Crowd"
+msgstr ""
+
+#: inc/card-post-type.php:46
+msgid "Parent Item:"
+msgstr ""
+
+#: inc/card-post-type.php:47 inc/card-post-type.php:74
+msgid "Cards"
+msgstr ""
+
+#: inc/card-post-type.php:48
+msgid "Add Card"
+msgstr ""
+
+#: inc/card-post-type.php:49
+msgid "New Card"
+msgstr ""
+
+#: inc/card-post-type.php:50
+msgid "New"
+msgstr ""
+
+#: inc/card-post-type.php:51
+msgid "Edit"
+msgstr ""
+
+#: inc/card-post-type.php:52
+msgid "Update"
+msgstr ""
+
+#: inc/card-post-type.php:53
+msgid "View"
+msgstr ""
+
+#: inc/card-post-type.php:54
+msgid "Search"
+msgstr ""
+
+#: inc/card-post-type.php:55
+msgid "Not found"
+msgstr ""
+
+#: inc/card-post-type.php:56
+msgid "Not found in trash"
+msgstr ""
+
+#: inc/card-post-type.php:57
+msgid "Featured image"
+msgstr ""
+
+#: inc/card-post-type.php:58
+msgid "Set featured image"
+msgstr ""
+
+#: inc/card-post-type.php:59
+msgid "Remove featured image"
+msgstr ""
+
+#: inc/card-post-type.php:60
+msgid "Use as featured image"
+msgstr ""
+
+#: inc/card-post-type.php:61
+msgid "Insert into item"
+msgstr ""
+
+#: inc/card-post-type.php:62
+msgid "Uploaded to this item"
+msgstr ""
+
+#: inc/card-post-type.php:63
+msgid "Items list"
+msgstr ""
+
+#: inc/card-post-type.php:64
+msgid "Items list navigation"
+msgstr ""
+
+#: inc/card-post-type.php:65
+msgid "Filter items list"
+msgstr ""
+
+#: inc/card-post-type.php:75
+msgid "Adds custom post type card"
+msgstr ""
+
+#: inc/card-post-type.php:103
+msgid "Cardtype"
+msgstr ""
+
+#: inc/card-post-type.php:146
+msgid "All cards"
+msgstr ""
+
+#: inc/card/_base-card.php:98
+msgid "Card type"
+msgstr ""
+
+#: inc/card/html-card.php:20
+msgid "HTML"
+msgstr ""
+
+#: inc/card/input-card.php:35
+msgid "EMail of receiver"
+msgstr ""
+
+#: inc/card/input-card.php:41
+msgid "Input text field placeholder text"
+msgstr ""
+
+#: inc/card/input-card.php:47 inc/card/poll-card.php:41
+msgid "Label of submit button"
+msgstr ""
+
+#: inc/card/input-card.php:121
+#, php-format
+msgctxt "Mail subject"
+msgid "New content from %s"
+msgstr ""
+
+#: inc/card/poll-card.php:23
+msgid "Options"
+msgstr ""
+
+#: inc/card/poll-card.php:28
+msgid "Option label"
+msgstr ""
+
+#: inc/card/poll-card.php:33
+msgid "Option counter"
+msgstr ""
+
+#: inc/menu.php:25
+msgctxt "Page title"
+msgid "Talk to Me"
+msgstr ""
+
+#: inc/menu.php:26
+msgctxt "Menu title"
+msgid "Talk to Me"
+msgstr ""
+
+#: inc/meta-box.php:41
+msgid "Initiator"
+msgstr ""
+
+#: inc/meta-box.php:53
+msgid "Crowd Cards"
+msgstr ""
+
+#: inc/meta-box/card-config.php:72
+msgid "Card configuration"
+msgstr ""
+
+#: inc/settings.php:33
+msgid "Crowd › Settings"
+msgstr ""
+
+#: inc/settings.php:34
+msgid "Settings"
+msgstr ""
+
+#: templates/card-basecard.tpl.php:9
+#, php-format
+msgctxt "BaseCard Template"
+msgid ""
+"No Template found for Card \"%1$s\" TemplateName \"%2$s\". Using Base "
+"Template..."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "TalkToMe - user inputs & polls"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/TagesWoche/crowd-plugin"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Journalism beginning with readers"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid ""
+"TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.tageswoche.ch"
+msgstr ""

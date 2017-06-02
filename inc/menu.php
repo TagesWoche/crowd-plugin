@@ -22,8 +22,8 @@ class Menu {
 	 */
 	function admin_menu(){
 		add_menu_page(
-			_x('Crowd', 'Page title' ,Plugin::DOMAIN),
-			__('Crowd', 'Menu title' ,Plugin::DOMAIN),
+			_x('Talk to Me', 'Page title' ,Plugin::DOMAIN),
+			_x('Talk to Me', 'Menu title' ,Plugin::DOMAIN),
 			'edit_posts',
 			self::SLUG,
 			null, // submenu pages will render output

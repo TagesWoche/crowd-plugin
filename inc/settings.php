@@ -30,7 +30,7 @@ class Settings {
 	public function admin_menu() {
 		add_submenu_page(
 			Menu::SLUG,
-			__('Crowd › Settings', Plugin::DOMAIN),
+			__('Talk to Me › Settings', Plugin::DOMAIN),
 			__('Settings', Plugin::DOMAIN),
 			'manage_options',
 			self::SLUG,
@@ -61,7 +61,7 @@ class Settings {
 		?>
 		<div class="wrap">
 			<form method="post">
-				<h2>Settings</h2>
+				<h2><?php _e('Settings', Plugin::DOMAIN) ?></h2>
 
 				<p>
 					<label>
@@ -77,12 +77,12 @@ class Settings {
 						        }
 						        ?>
 						/>
-						Disable autorendering cards to post content.
+						<?php _e('Disable autorendering cards to post content.', Plugin::DOMAIN); ?>
 					</label>
 				</p>
 
 				<?php
-				submit_button("Save", 'primary');
+				submit_button(__("Save", Plugin::DOMAIN), 'primary');
 				?>
 
 			</form>
