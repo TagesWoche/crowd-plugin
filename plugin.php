@@ -3,13 +3,13 @@
  * Plugin Name: TalkToMe - user inputs & polls
  * Plugin URI: https://github.com/TagesWoche/crowd-plugin
  * Description: Journalism beginning with readers
- * Version: 1.0.4
+ * Version: 1.0.6
  * Author: TagesWoche <admin@tageswoche.ch> & Palasthotel <rezeption@palasthotel.de>
  * Author URI: http://www.tageswoche.ch
  * Text Domain: crowd
  * Domain Path: /languages
  * Requires at least: 4.0
- * Tested up to: 4.7.5
+ * Tested up to: 4.8
  * License: http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @copyright Copyright (c) 2017, Palasthotel
  * @package Palasthotel\Crowd
@@ -100,6 +100,10 @@ class Plugin {
 	 * modify slug for card content type
 	 */
 	const FILTER_CARD_CPT_SLUG = "crowd_card_content_type_slug";
+	/**
+	 * verify card input custom way
+	 */
+	const FILTER_CARD_INPUT_VERIFY_REQUEST = "crowd_card_input_verify_request";
 	/**
 	 * modify content initially input card user input
 	 */

@@ -78,63 +78,60 @@ class InputCard extends BaseCard {
 	 */
 	function card_action( $json, $redirect = FALSE ) {
 
+		$error = false;
+
 		/**
 		 * if there is no user content we cannot help
 		 */
 		if ( ! isset( $json->{self::POST_INPUT_USER_CONTENT} ) ) {
-			return;
+			$error = true;
 		}
-		
-		/**
-		 * nonce check
-		 */
-		if (
-			! isset( $_POST[ self::POST_NONCE_NAME ] )
-			|| ! wp_verify_nonce( $_POST[ self::POST_NONCE_NAME ], self::POST_NONCE_ACTION )
-		) {
-			// TODO: error display?
-			return;
+
+		$verified = apply_filters(Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST, null, $json, $this);
+		if(!$verified){
+			$error = true;
 		}
-		
-		// TODO: security checks for bots like honey pott or something like this
-		
-		/**
-		 * modify $content initially filled with user content
-		 */
-		$content = $json->{self::POST_INPUT_USER_CONTENT};
-		$content = apply_filters( Plugin::FILTER_CARD_INPUT_MODIFY_CONTENT, $content, $json, $this );
-		
-		/**
-		 * handle submitted content.
-		 */
-		$skip_mailing = FALSE;
-		$skip_mailing = apply_filters( Plugin::FILTER_CARD_INPUT_HANDLE_CONTENT, $skip_mailing, $content, $json, $this );
 
-
-		if ( ! $skip_mailing ) {
+		if(!$error){
+			/**
+			 * modify $content initially filled with user content
+			 */
+			$content = $json->{self::POST_INPUT_USER_CONTENT};
+			$content = apply_filters( Plugin::FILTER_CARD_INPUT_MODIFY_CONTENT, $content, $json, $this );
 
 			/**
-			 * send mail if should not skip
+			 * handle submitted content.
 			 */
-			$subject = apply_filters(
-				Plugin::FILTER_CARD_INPUT_MAIL_SUBJECT,
-				sprintf( _x( "New content from %s", "Mail subject", Plugin::DOMAIN ), $this->getName() ),
-				$json,
-				$this
-			);
+			$skip_mailing = FALSE;
+			$skip_mailing = apply_filters( Plugin::FILTER_CARD_INPUT_HANDLE_CONTENT, $skip_mailing, $content, $json, $this );
 
-			wp_mail(
-				$this->get_receiver(),
-				$subject,
-				$content
-			);
+
+			if ( ! $skip_mailing ) {
+
+				/**
+				 * send mail if should not skip
+				 */
+				$subject = apply_filters(
+					Plugin::FILTER_CARD_INPUT_MAIL_SUBJECT,
+					sprintf( _x( "New content from %s", "Mail subject", Plugin::DOMAIN ), $this->getName() ),
+					$json,
+					$this
+				);
+
+				wp_mail(
+					$this->get_receiver(),
+					$subject,
+					$content
+				);
+			}
 		}
+
 		
 		/**
 		 * if redirect
 		 */
 		if ( isset( $json->{CardAction::VAR_REDIRECT} ) && "" != $json->{CardAction::VAR_REDIRECT} ) {
-			wp_redirect( add_query_arg( $this->get_response_query_args(), $json->{CardAction::VAR_REDIRECT} ) );
+			wp_redirect( add_query_arg( $this->get_response_query_args( array("error" => $error) ), $json->{CardAction::VAR_REDIRECT} ) );
 			exit;
 		}
 		
@@ -146,11 +143,27 @@ class InputCard extends BaseCard {
 		header( "Cache-Control: post-check=0, pre-check=0", FALSE );
 		header( "Pragma: no-cache" );
 		echo json_encode(array(
-			"error" => false,
+			"error" => $error,
 		));
 		exit;
 	}
-	
+
+	/**
+	 * get quer args for redirect
+	 *
+	 * @param array $args
+	 *
+	 * @return array
+	 * @internal param array $args
+	 *
+	 */
+	function get_response_query_args($args = array()){
+		$_args = parent::get_response_query_args();
+		if($args["error"]){
+			$_args[self::VAR_RESPONSE] = "error-".$this->post->ID;
+		}
+		return $_args;
+	}
 	
 	
 }

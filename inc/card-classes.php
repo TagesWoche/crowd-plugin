@@ -15,7 +15,28 @@ class CardClasses {
 		
 		add_action( 'init', array($this,'init_classes') );
 		add_action( Plugin::ACTION_ADD_CARD_CLASS, array($this, 'add_card_class') );
+
+		add_filter(Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST , array($this, 'verify_input_card_request'), 99, 3);
 		
+	}
+
+	/**
+	 * verify card input request
+	 * @param $verified
+	 * @param $json
+	 * @param $card
+	 *
+	 * @return bool
+	 */
+	function verify_input_card_request($verified, $json, $card){
+
+		// if not null it was handled elsewhere
+		if($verified !== null) return $verified;
+
+		/**
+		 * nonce check
+		 */
+		return ( ! isset( $_POST[ InputCard::POST_NONCE_NAME ] ) || ! wp_verify_nonce( $_POST[ InputCard::POST_NONCE_NAME ], InputCard::POST_NONCE_ACTION ) );
 	}
 	
 	/**

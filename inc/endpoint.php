@@ -55,7 +55,7 @@ class Endpoint {
 		
 		
 		wp_localize_script( Plugin::HANDLE_JS_API, 'Crowd_API', array(
-			"endpoint" => home_url(Endpoint::URL),
+			"endpoint" => "/".Endpoint::URL,
 		) );
 	}
 	
