@@ -105,11 +105,11 @@ class MetaBoxCardConfig {
 	function render( \WP_Post $post ) {
 
 		?>
-		<div id="<?php echo self::ROOT_ID; ?>">CARD EDITOR</div>
+<!--		<div id="--><?php //echo self::ROOT_ID; ?><!--">CARD EDITOR</div>-->
 		<?php
 
-//		$fields = $this->card->getMetaFields();
-//		$this->renderFields( $fields );
+		$fields = $this->card->getMetaFields();
+		$this->renderFields( $fields );
 
 	}
 
@@ -122,6 +122,8 @@ class MetaBoxCardConfig {
 
 		// TODO: custom field handler with filter that return true if handled and echos output
 
+		echo "<ul>";
+
 		foreach ( $fields as $field ) {
 			if ( null == $values ) {
 				$value = $this->card->getValue( $field["meta_key"] );
@@ -130,6 +132,7 @@ class MetaBoxCardConfig {
 			} else {
 				$value = null;
 			}
+			echo "<li>";
 			switch ( $field["type"] ) {
 				case "hidden":
 					$this->renderHidden( $value, $field, $parent_key );
@@ -150,7 +153,9 @@ class MetaBoxCardConfig {
 					echo "<p>Unknown Type: {$field['type']} of meta field {$field['meta_key']}</p>";
 					break;
 			}
+			echo "</li>";
 		}
+		echo "</ul>";
 	}
 
 	/**
@@ -173,7 +178,7 @@ class MetaBoxCardConfig {
 	 * @param $parent_key
 	 */
 	function renderHidden( $value, $field, $parent_key = "" ) {
-		echo "<input type='hidden' name='{$this->get_input_name($field["meta_key"],$parent_key)}' value='{$value}' /><br>";
+		echo "<input type='hidden' name='{$this->get_input_name($field["meta_key"],$parent_key)}' value='{$value}' />";
 
 	}
 
@@ -184,7 +189,7 @@ class MetaBoxCardConfig {
 	 */
 	function renderText( $value, $field, $parent_key = "" ) {
 		$label = $field["label"];
-		echo "<label>{$label}<br><input type='text' name='{$this->get_input_name($field["meta_key"],$parent_key)}' value='{$value}' /></label><br>";
+		echo "<label>{$label}<br><input type='text' name='{$this->get_input_name($field["meta_key"],$parent_key)}' value='{$value}' /></label>";
 	}
 
 	/**
@@ -194,7 +199,7 @@ class MetaBoxCardConfig {
 	 */
 	function renderTextarea( $value, $field, $parent_key = "" ) {
 		$label = $field["label"];
-		echo "<label>{$label}<br><textarea name='{$this->get_input_name($field["meta_key"],$parent_key)}'>{$value}</textarea></label><br>";
+		echo "<label>{$label}<br><textarea name='{$this->get_input_name($field["meta_key"],$parent_key)}'>{$value}</textarea></label>";
 	}
 
 	/**
@@ -214,7 +219,7 @@ class MetaBoxCardConfig {
 					echo "<option {$selected} value=\"{$key}\">{$label}</option>";
 				}
 				?>
-			</select></label><br>
+			</select></label>
 		<?php
 
 	}

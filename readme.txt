@@ -4,7 +4,7 @@ Donate link: http://www.tageswoche.ch/
 Tags: community
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ You can email us at admin@tageswoche.ch with "Crowd Plugin" in the subject and t
 5. Example of an ‘Input Card’
 
 == Changelog ==
+
+= 1.0.9 =
+* Input cards got option for anonymous submits
 
 = 1.0.8 =
 * SVG Menu icon

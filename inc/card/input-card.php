@@ -11,20 +11,12 @@ class InputCard extends BaseCard {
 	const META_RECEIVER = "crowd_card_input_card_receiver";
 	const META_PLACEHOLDER_TEXT = "crowd_card_input_card_placeholder_text";
 	const META_SUBMIT_BUTTON_LABEL = "crowd_card_input_card_submit_button_label";
+	const META_ANONYMOUS_ALLWOED = "crowd_card_input_card_annonymos_allowed";
 	
 	/**
 	 * form action fields
 	 */
 	const POST_INPUT_USER_CONTENT = "crowd_card_input_user_content";
-	
-	/**
-	 * InputCard constructor.
-	 *
-	 * @param \WP_Post $post
-	 */
-	function __construct( $post = NULL ) {
-		parent::__construct( $post );
-	}
 	
 	public function getMetaFields() {
 		
@@ -46,6 +38,16 @@ class InputCard extends BaseCard {
 			"meta_key" => self::META_SUBMIT_BUTTON_LABEL,
 			"label"    => __( "Label of submit button", Plugin::DOMAIN ),
 			"type"     => "text",
+		);
+
+		$fields[] = array(
+			"meta_key" => self::META_ANONYMOUS_ALLWOED,
+			"label"    => __( "Allow anonymous users?", Plugin::DOMAIN ),
+			"type"     => "select",
+			"selections" => array(
+				array("label" => "Yes, anonymous users can submit", "key" => 1),
+				array("label" => "No, anonymous users are not allowed to submit", "key" => 0),
+			)
 		);
 		
 		/**
@@ -70,6 +72,9 @@ class InputCard extends BaseCard {
 	function get_submit_button_label() {
 		return $this->getValue( self::META_SUBMIT_BUTTON_LABEL );
 	}
+	function can_submit_anonymous(){
+		return $this->getValue(self::META_ANONYMOUS_ALLWOED );
+	}
 	
 	/**
 	 * --------------------------------------------------------
@@ -87,7 +92,7 @@ class InputCard extends BaseCard {
 			$error = true;
 		}
 
-		$verified = apply_filters(Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST, null, $json, $this);
+		$verified = apply_filters(Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST, $this->can_submit_anonymous(), $json, $this);
 		if(!$verified){
 			$error = true;
 		}
@@ -149,7 +154,7 @@ class InputCard extends BaseCard {
 	}
 
 	/**
-	 * get quer args for redirect
+	 * get query args for redirect
 	 *
 	 * @param array $args
 	 *
