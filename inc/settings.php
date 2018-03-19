@@ -44,7 +44,7 @@ class Settings {
 	 */
 	public function render_settings() {
 
-		if( isset($_POST) ){
+		if( !empty($_POST) ){
 
 			if(
 				isset($_POST[Plugin::OPTION_AUTO_RENDER_CARDS_TO_POST_DISABLED]) &&
