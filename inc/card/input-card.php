@@ -92,7 +92,12 @@ class InputCard extends BaseCard {
 			$error = true;
 		}
 
-		$verified = apply_filters(Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST, $this->can_submit_anonymous(), $json, $this);
+		$verified = apply_filters(
+			Plugin::FILTER_CARD_INPUT_VERIFY_REQUEST,
+			( is_user_logged_in() || $this->can_submit_anonymous()),
+			$json,
+			$this
+		);
 		if(!$verified){
 			$error = true;
 		}
