@@ -73,7 +73,7 @@ class InputCard extends BaseCard {
 		return $this->getValue( self::META_SUBMIT_BUTTON_LABEL );
 	}
 	function can_submit_anonymous(){
-		return $this->getValue(self::META_ANONYMOUS_ALLWOED );
+		return intval( $this->getValue(self::META_ANONYMOUS_ALLWOED ) ) == 1;
 	}
 	
 	/**
