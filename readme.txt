@@ -66,6 +66,9 @@ You can email us at admin@tageswoche.ch with "Crowd Plugin" in the subject and t
 
 == Changelog ==
 
+= 1.0.10 =
+* Save settings fix
+
 = 1.0.9 =
 * Input cards got option for anonymous submits
 
